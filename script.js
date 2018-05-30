@@ -1,5 +1,17 @@
 // Cash Register App
 
+// Object constructor for staff members
+function StaffMember (name, discountPercent) {
+  this.name = name;
+  this.discountPercent = discountPercent;
+}
+
+// Some staff members and their staff discounts
+var sally = new StaffMember ("Sally", 5);
+var bob = new StaffMember ("Bob", 10);
+var susan = new StaffMember ("Susan", 20);
+var mike = new StaffMember ("Mike", 15);
+
 // Cash register
 var cashRegister = {
   total: 0, // Total bill
@@ -23,5 +35,9 @@ var cashRegister = {
   voidLastTransaction: function () {
     this.total -= this.lastTransactionAmount;
     this.lastTransactionAmount = 0;
+  },
+  // Applys the staff discount
+  applyStaffDiscount: function (employee) {
+    this.total -= this.total * (employee.discountPercent/100);
   }
 };
