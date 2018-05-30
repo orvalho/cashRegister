@@ -26,8 +26,8 @@ var cashRegister = {
     switch (item) {
       case "eggs": this.add(0.98 * quantity); break; // price of eggs is 0.98
       case "milk": this.add(1.23 * quantity); break; // price of milk is 1.23
-      case "magazine": this.add(4.99 * quantity); break; // magazine of eggs is 4.99
-      case "chocolate": this.add(0.45 * quantity); // chocolate of eggs is 0.45
+      case "magazine": this.add(4.99 * quantity); break; // price of magazine is 4.99
+      case "chocolate": this.add(0.45 * quantity); // price of chocolate is 0.45
     }
     return true;
   },
