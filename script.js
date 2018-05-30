@@ -3,9 +3,11 @@
 // Cash register
 var cashRegister = {
   total: 0, // Total bill
+  lastTransactionAmount: 0,
   // Sums up the cost of the items
   add: function (itemCost) {
     this.total += (itemCost || 0); // Makes this.total equal to the value of this.total plus the value of itemCost if it has a value. If not, just use 0 instead
+    this.lastTransactionAmount = itemCost;
   },
   // Scans item - knowing the item name will automatically add the cost of that item to the total. If the scanner is told the quantity of each item, it will add the right amount to the total
   scan: function (item, quantity) {
@@ -16,5 +18,10 @@ var cashRegister = {
       case "chocolate": this.add(0.45 * quantity); // chocolate of eggs is 0.45
     }
     return true;
+  },
+  // Voids the last transaction if a mistake has been made
+  voidLastTransaction: function () {
+    this.total -= this.lastTransactionAmount;
+    this.lastTransactionAmount = 0;
   }
 };
