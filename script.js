@@ -41,3 +41,17 @@ var cashRegister = {
     this.total -= this.total * (employee.discountPercent/100);
   }
 };
+
+// Scanning some items
+cashRegister.scan("eggs",2);
+cashRegister.scan("milk",10);
+cashRegister.scan("magazine",1);
+
+// Voiding last transaction
+cashRegister.voidLastTransaction();
+
+// Applying some staff discount
+cashRegister.applyStaffDiscount(susan);
+
+// Showing the total bill
+console.log("Your bill is " + cashRegister.total.toFixed(2));
